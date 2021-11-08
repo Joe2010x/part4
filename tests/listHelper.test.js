@@ -121,7 +121,7 @@ describe('total likes', () => {
 
       test('with multiple blogs return the one with most likes',()=>{
           const result = listHelper.favoriteBlog(blogs)
-          console.log(result)
+          //console.log(result)
           expect(result).toEqual(
             {
                 title: "Canonical string reduction",
@@ -129,5 +129,25 @@ describe('total likes', () => {
                 likes: 12
               }
           )
+      })
+
+      test('with multiple blogs return the one with most blogs',()=>{
+        const result = listHelper.mostBlogs(blogs)
+        expect(result).toEqual(
+            {
+                author: "Robert C. Martin",
+                blogs: 3
+              }
+        )
+      })
+
+      test('with multiple blogs return the one with most likes overall',()=>{
+        const result = listHelper.mostLikes(blogs)
+        expect(result).toEqual(
+            {
+                author: "Edsger W. Dijkstra",
+                likes: 17
+              }
+        )
       })
   })
